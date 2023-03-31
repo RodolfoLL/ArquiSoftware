@@ -58,5 +58,6 @@ public class Personaje {
     public void volverAtras(){
         Elemento elementAmbiente = ambienteActual.getElemento(0);
         setAmbienteActual(((Puerta) elementAmbiente).getAmbienteDestino());
+        ((Puerta)elementAmbiente).setUtilizado(false);
     }
 }

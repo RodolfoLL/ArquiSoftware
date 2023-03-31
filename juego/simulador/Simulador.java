@@ -41,9 +41,9 @@ public class Simulador {
             int opcion = sc.nextInt();
             if(opcion < 6){
                 miPersonaje.Mover(opcion-1);
+                miPersonaje.mostrarElementosAmbientes();
                 System.out.println("Utilizaste la " + miPersonaje.getAmbienteActual().getElemento(0).getNombreElemento());
                 miPersonaje.mostrarAmbiente();
-                miPersonaje.mostrarElementosAmbientes();
             }else{
                 enJuego = false;
             }
