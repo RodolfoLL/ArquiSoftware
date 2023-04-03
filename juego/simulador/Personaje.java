@@ -15,9 +15,6 @@ public class Personaje {
     public Ambiente getAmbienteActual(){
         return ambienteActual;
     }
-    public String getNombreAmbiente(){
-        return ambienteActual.getNombreEntorno();
-    }
     public void setAmbienteActual(Ambiente actual){
         this.ambienteActual = actual;
     }
@@ -26,10 +23,10 @@ public class Personaje {
             volverAtras();
         }else{
             if(!ambienteActual.getNombreEntorno().equals("pasillo")){
-                Elemento inicial = ambienteActual.getElemento(opcion);
+                Elemento inicial = ambienteActual.getElemento(0);
                 if(inicial instanceof Puerta){
-                    ((Puerta) inicial).setUtilizado(true);
-                    setAmbienteActual(((Puerta) inicial).getAmbienteDestino());
+                    inicial.setEncontrado(true);
+                    this.ambienteActual = ((Puerta) inicial).getAmbienteDestino();
                 }
             }else{
                 verificarPuertaPasillo(opcion);
@@ -38,26 +35,29 @@ public class Personaje {
     }
     public void mostrarAmbiente(){
         System.out.println("el personaje "+idPersonaje+" "+"esta en el ambiente "+ambienteActual.getNombreEntorno());
+        mostrarElementosAmbientes();
     }
-    public void mostrarElementosAmbientes(){
-        for (int i = 0; i < ambienteActual.getMisElementos().size(); i++) {
-            System.out.println(i+1+".- "+ambienteActual.getMisElementos().get(i).getNombreElemento());
+    private void mostrarElementosAmbientes(){
+        int tamanio = ambienteActual.getMisElementos().size();
+        for (int i = 0; i < tamanio; i++) {
+            String nombreElemento = ambienteActual.getElemento(i).getNombreElemento();
+            System.out.println(i+1+".- "+nombreElemento);
         }
         System.out.println(5+".- volver atras");
     }
-    public void verificarPuertaPasillo(int opcion){
+    private void verificarPuertaPasillo(int opcion){
         Elemento elementoInical = ambienteActual.getElemento(opcion);
-        if (!((Puerta) elementoInical).getUtilizado()){
-            ((Puerta) elementoInical).setUtilizado(true);
-            setAmbienteActual(((Puerta) elementoInical).getAmbienteOrigen());
+        if (!elementoInical.encontrado() && elementoInical instanceof Puerta){
+            elementoInical.setEncontrado(true);
+            this.ambienteActual = elementoInical.getAmbienteOrigen();
         }else{
-            ((Puerta) elementoInical).setUtilizado(false);
-            setAmbienteActual(((Puerta) elementoInical).getAmbienteDestino());
+            elementoInical.setEncontrado(false);
+            this.ambienteActual = ((Puerta)elementoInical).getAmbienteDestino();
         }
     }
-    public void volverAtras(){
+    private void volverAtras(){
         Elemento elementAmbiente = ambienteActual.getElemento(0);
-        setAmbienteActual(((Puerta) elementAmbiente).getAmbienteDestino());
-        ((Puerta)elementAmbiente).setUtilizado(false);
+        this.ambienteActual = ((Puerta)elementAmbiente).getAmbienteDestino();
+        elementAmbiente.setEncontrado(false);
     }
 }

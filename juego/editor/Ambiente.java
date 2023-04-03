@@ -3,7 +3,7 @@ package juego.editor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ambiente implements  Entorno{
+public class Ambiente extends Entorno{
     private String nombreAmbiente;
     private List<Elemento> misElementos;
 
@@ -12,14 +12,20 @@ public class Ambiente implements  Entorno{
         this.misElementos = new ArrayList<>();
 
     }
+
+    @Override
+    public Entorno getElementEntorno() {
+        return null;
+    }
+
     @Override
     public void agregarEntorno(Entorno nuevoEntorno) {
         System.out.println("No puedo agregar ningun entorno");
     }
 
-    public Entorno buscar(Entorno miEntorno,String nombreAmbiente){
-        return null;
-    }
+//    public Entorno buscar(Entorno miEntorno){
+//        return null;
+//    }
     public String getNombreEntorno(){
         return nombreAmbiente;
     }
@@ -32,9 +38,6 @@ public class Ambiente implements  Entorno{
     }
     public List<Elemento> getMisElementos(){
         return misElementos;
-    }
-    public Entorno getEntornoList(){
-        return null;
     }
     public Elemento getElemento(int opcion){
         return misElementos.get(opcion);

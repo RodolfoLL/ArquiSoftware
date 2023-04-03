@@ -5,11 +5,11 @@ import java.util.List;
 public class Puerta extends Elemento{
     private Ambiente ambienteDestino;
     private Ambiente ambienteOrigen;
-    private Boolean utilizado;
+    private Boolean encontrado;
 
     public Puerta(String nombreElemento){
         this.nombreElemento = nombreElemento;
-        this.utilizado = false;
+        this.encontrado = false;
     }
 
     public Ambiente getAmbienteDestino(){
@@ -31,10 +31,13 @@ public class Puerta extends Elemento{
     }
 
 
-    public Boolean getUtilizado(){
-        return utilizado;
+    public Boolean encontrado(){
+        return encontrado;
     }
-    public void setUtilizado(Boolean estado){
-        utilizado = estado;
+    public Boolean getEncontrado(){
+        return encontrado;
+    }
+    public void setEncontrado(Boolean nuevoEstado){
+        encontrado = nuevoEstado;
     }
 }

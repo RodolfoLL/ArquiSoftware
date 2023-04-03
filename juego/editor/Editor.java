@@ -37,26 +37,26 @@ public class Editor {
         agregarElementoAmbiente(puerta3,ambiente5);
         agregarElementoAmbiente(puerta4,ambiente5);
 
-        miEscenario.agregarEntorno(ambiente5);
         miEscenario.agregarEntorno(ambiente1);
         miEscenario.agregarEntorno(ambiente2);
+        miEscenario.agregarEntorno(ambiente5);
         miEscenario.agregarEntorno(ambiente3);
         miEscenario.agregarEntorno(ambiente4);
         escenarioPrincipal.agregarEntorno(miEscenario);
 
         return escenarioPrincipal;
     }
-    public void agregarElementoAmbiente(Elemento nuevoElemento,Entorno miAmbiente){
+    private void agregarElementoAmbiente(Elemento nuevoElemento,Entorno miAmbiente){
         if(miAmbiente instanceof Ambiente){
             ((Ambiente) miAmbiente).agregarElemento(nuevoElemento);
         }
     }
-    public void agregarPuertaDestino(Elemento puerta,Entorno destino){
+    private void agregarPuertaDestino(Elemento puerta,Entorno destino){
         if(puerta instanceof Puerta && destino instanceof Ambiente){
             ((Puerta) puerta).agregarAmbienteDestino((Ambiente) destino);
         }
     }
-    public void agregarPuertaOrigen(Elemento puerta,Entorno origen){
+    private void agregarPuertaOrigen(Elemento puerta,Entorno origen){
         if(puerta instanceof  Puerta && origen instanceof Ambiente){
             ((Puerta) puerta).agregarAmbienteOrigen((Ambiente) origen);
         }

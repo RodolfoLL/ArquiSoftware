@@ -1,8 +1,8 @@
 package juego.editor;
 
-public interface Entorno {
-    public String getNombreEntorno();
-    public void agregarEntorno(Entorno nuevoEntorno);
-    public Entorno buscar(Entorno escenario,String  nombreAmbiente);
-    public Entorno getEntornoList();
+public abstract class Entorno {
+    public abstract String getNombreEntorno();
+    public abstract void agregarEntorno(Entorno nuevoEntorno);
+//    public abstract Entorno buscar(Entorno escenario);
+    public abstract Entorno getElementEntorno();
 }

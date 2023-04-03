@@ -18,30 +18,20 @@ public class Simulador {
         sc = new Scanner(System.in);
         enJuego = true;
     }
-    public Entorno getMiEntorno(){
-        Entorno res = null;
-        Entorno entornoInicio = miEntorno.getEntornoList();
-        if(entornoInicio instanceof Escenario){
-            res =entornoInicio;
-        }
-        return res;
-    }
 
     public void run()  {
         System.out.println("Simulador corriendo");
-        Entorno inicio = getMiEntorno();
-        if (inicio instanceof Escenario){
-            System.out.println("Estamos en el escenario: "+ inicio.getNombreEntorno());
-            miPersonaje.setAmbienteActual((Ambiente) inicio.getEntornoList());
+        Entorno primero = miEntorno.getElementEntorno();
+        if (primero instanceof Escenario){
+            System.out.println("Estamos en el escenario: "+ primero.getNombreEntorno());
+            miPersonaje.setAmbienteActual((Ambiente) primero.getElementEntorno());
             miPersonaje.mostrarAmbiente();
-            miPersonaje.mostrarElementosAmbientes();
         }
         while(enJuego){
             System.out.println("Introduzca un numero para ir a un ambiente:");
             int opcion = sc.nextInt();
             if(opcion < 6){
                 miPersonaje.Mover(opcion-1);
-                miPersonaje.mostrarElementosAmbientes();
                 System.out.println("Utilizaste la " + miPersonaje.getAmbienteActual().getElemento(0).getNombreElemento());
                 miPersonaje.mostrarAmbiente();
             }else{
