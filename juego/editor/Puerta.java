@@ -6,10 +6,15 @@ public class Puerta extends Elemento{
     private Ambiente ambienteDestino;
     private Ambiente ambienteOrigen;
     private Boolean encontrado;
+    private String typeElement;
 
     public Puerta(String nombreElemento){
         this.nombreElemento = nombreElemento;
         this.encontrado = false;
+        this.typeElement = "Puerta";
+    }
+    public String getTipoElement(){
+        return typeElement;
     }
 
     public Ambiente getAmbienteDestino(){

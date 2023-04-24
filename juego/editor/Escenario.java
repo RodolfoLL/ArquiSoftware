@@ -6,10 +6,12 @@ import java.util.List;
 public class Escenario extends Entorno {
     private String nombreEscenario;
     private List<Entorno> misAmbientes;
+    private String typeEntorno;
 
     public Escenario(String nombreEscenario){
         this.nombreEscenario = nombreEscenario;
         this.misAmbientes = new ArrayList<>();
+        this.typeEntorno = "Escenario";
     }
 
     @Override
@@ -17,6 +19,9 @@ public class Escenario extends Entorno {
         if(nuevoEntorno !=null){
             misAmbientes.add(nuevoEntorno);
         }
+    }
+    public String getTipo(){
+        return typeEntorno;
     }
 //    public Entorno buscar(Entorno entornoBuscar){
 //        Entorno res = null;
@@ -40,7 +45,4 @@ public class Escenario extends Entorno {
         return misAmbientes.get(0);
     }
 
-    public List<Entorno> getMisAmbientes(){
-        return misAmbientes;
-    }
 }

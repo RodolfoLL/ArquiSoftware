@@ -6,16 +6,25 @@ import java.util.List;
 public class Ambiente extends Entorno{
     private String nombreAmbiente;
     private List<Elemento> misElementos;
+    private String typeEntorno;
 
     public Ambiente(String nombreAmbiente){
         this.nombreAmbiente = nombreAmbiente;
         this.misElementos = new ArrayList<>();
+        this.typeEntorno = "Ambiente";
 
     }
-
     @Override
     public Entorno getElementEntorno() {
         return null;
+    }
+
+    @Override
+    public String getTipo() {
+        return typeEntorno;
+    }
+    public List<Elemento> getListElements(){
+        return misElementos;
     }
 
     @Override
@@ -23,9 +32,6 @@ public class Ambiente extends Entorno{
         System.out.println("No puedo agregar ningun entorno");
     }
 
-//    public Entorno buscar(Entorno miEntorno){
-//        return null;
-//    }
     public String getNombreEntorno(){
         return nombreAmbiente;
     }
@@ -39,7 +45,7 @@ public class Ambiente extends Entorno{
     public List<Elemento> getMisElementos(){
         return misElementos;
     }
-    public Elemento getElemento(int opcion){
-        return misElementos.get(opcion);
+    public Elemento getElemento(int posicion){
+        return misElementos.get(posicion);
     }
 }

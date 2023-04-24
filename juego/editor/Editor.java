@@ -5,18 +5,18 @@ public class Editor {
         return getEscenarioDePrueba();
     }
 
-    public Entorno getEscenarioDePrueba() {
-        Entorno escenarioPrincipal  = new Escenario("Edificio Academico");
+    private  Entorno getEscenarioDePrueba() {
+        Entorno escenarioPrincipal  = new Escenario("Departamento Info Sis");
         Entorno miEscenario = new Escenario("Planta Baja");
         Entorno ambiente1 = new Ambiente("Laboratorio1");
         Entorno ambiente2 = new Ambiente("Auditorio");
         Entorno ambiente3 = new Ambiente("Laboratorio de redes");
         Entorno ambiente4 = new Ambiente("Administracion");
         Entorno ambiente5 = new Ambiente("pasillo");
-        Elemento puerta1 = new Puerta("puerta laboratorio1");
-        Elemento puerta2 =  new Puerta("puerta auditorio");
-        Elemento puerta3 = new Puerta("puerta laboratorio redes");
-        Elemento puerta4 = new Puerta("puerta de administracion");
+        Elemento puerta1 = new Puerta("plaboratorio1");
+        Elemento puerta2 =  new Puerta("pauditorio");
+        Elemento puerta3 = new Puerta("plaboredes");
+        Elemento puerta4 = new Puerta("padministracion");
         Elemento puerta5 = new Puerta("pasillo");
 
         agregarPuertaDestino(puerta1,ambiente5);

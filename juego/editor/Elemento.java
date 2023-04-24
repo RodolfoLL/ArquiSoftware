@@ -7,5 +7,5 @@ public abstract class Elemento {
     public abstract Ambiente getAmbienteOrigen();
     public abstract Boolean encontrado();
     public abstract void setEncontrado(Boolean estado);
-    public abstract Boolean getEncontrado();
+    public abstract String getTipoElement();
 }
